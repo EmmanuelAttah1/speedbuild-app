@@ -1,0 +1,11 @@
+.button{
+    font-size: 12px;
+    cursor: pointer;
+    padding:12px;
+    text-align: center;
+    font-weight:600;
+}
+
+.button:hover{
+    opacity: .6;
+}

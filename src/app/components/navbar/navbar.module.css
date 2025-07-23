@@ -1,0 +1,35 @@
+.navBar{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ffffffa4;
+    position: absolute;
+    top:0px;
+    z-index: 10;
+}
+
+.brand_container, .nav_items{
+    display: flex;
+    align-items: center;
+    gap:30px;
+}
+
+.brand_container{
+    gap:10px;
+}
+
+.nav_item{
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nav_item:hover{
+    font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+  .nav_items{
+    display: none;
+  }
+}

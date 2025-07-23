@@ -1,0 +1,98 @@
+.radioContainer{
+    width:100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    display:flex;
+    gap:20px;
+    align-items: center;
+}
+
+.radioLeft{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.radioHeading{
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.radioBody{
+    font-size: 13px;
+}
+
+.center{
+    text-align: center;
+}
+
+.intructions{
+    padding: 20px 0px;
+}
+
+.intructions p, .intructions li{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.small_text{
+    font-size: 14px;
+}
+
+.llmoptions{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
+
+.llm_container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap:30px;
+}
+
+.sb_command{
+    background-color: #293038;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.selectModel{
+    width:200px;
+    margin-bottom: 30px;
+}
+
+.customRow{
+    width:60%
+}
+
+@media screen and (max-width: 800px) {
+    .customRow, .llm_container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .radioBody{
+        display: none;
+    }
+
+    .llm_container{
+        grid-template-columns: 1fr;
+    }
+
+    .sb_command{
+        display: block;
+        padding: 10px;
+    }
+
+    .selectModel{
+        width: 100%;
+    }
+}

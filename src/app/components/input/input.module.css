@@ -1,0 +1,97 @@
+.custom_input{
+    background-color: #293038;
+    width: 100%;
+    height: 50px;
+    display: block;
+    margin: 0px;
+    border-radius: 12px;
+    padding: 0px 15px;
+    font-size: 14px;
+}
+
+.select_input{
+    background-color: #293038;
+    width: 100%;
+    max-height: 400px;
+    display: block;
+    margin: 0px;
+    border-radius: 12px;
+    padding: 15px 0px;
+    font-size: 14px;
+}
+
+.input_label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.selectContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0px 15px;
+    cursor: pointer;
+}
+
+.selectIcon{
+    cursor: pointer;
+}
+
+.selectChild{
+    cursor: pointer;
+    padding: 10px 15px;
+    opacity: .6;
+}
+
+.selectChild:hover{
+    background-color: rgb(167, 157, 157);
+    opacity: 1;
+    color: #000000;
+}
+
+.checkbox_container{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.checkbox{
+    width:20px;
+    height:20px;
+    background-color: #293038 !important;
+}
+
+/* Hide the default checkbox */
+.checkbox[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #293038;
+  border-radius: 4px;
+  background-color: transparent; /* default background */
+  cursor: pointer;
+}
+
+
+/* Optional: add a custom checkmark */
+.checkbox[type="checkbox"]:checked::after {
+  content: "✔";
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  height: 100%;
+}
+
+.error_text{
+    font-size: 12px;
+    margin: 5px 0px;
+    color:rgb(184, 45, 45);
+}
+
+.input_error{
+    border: 2px solid rgb(184, 45, 45);
+}

@@ -14,9 +14,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #121417;
     --foreground: #ededed;
   }
+}
+
+h1{
+  font-size: 30px;
+  font-weight: 700;
 }
 
 body {
@@ -24,3 +29,46 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+.MainBtnContainer{
+    display:flex;
+    width:500px;
+    gap:20px;
+}
+
+@media screen and (max-width: 800px) {
+  .MainContainer{
+    width: 100%;
+    padding: 20px;
+  }
+
+  .MainSubtitle{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+    .MainBtnContainer{
+        width: 100%;
+    }
+
+    .MainContainer h1{
+        font-size: 20px;
+    }
+
+    .MainContainer p{
+        font-size: 14px;
+    }
+
+    .MainContainer button{
+        font-size: 10px;
+    }
+}
+

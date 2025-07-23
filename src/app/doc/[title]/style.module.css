@@ -1,0 +1,142 @@
+.docContainer{
+    display: flex;
+    gap:30px;
+}
+
+.sectionHead{
+    display: flex;
+}
+
+.sectionChildren{
+    padding: 0px 30px;
+}
+
+.sectionToggleBtn{
+    cursor: pointer;
+}
+
+.sectionToggleBtnOpen{
+    transform: rotate(90deg);
+}
+
+.menuContainer{
+    width: 250px;  
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.sectionChild{
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sectionHeadBold{
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.headSection{
+    font-size: 14px;
+}
+
+.docMain{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ControllerContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+.controller{
+    display: flex;
+    align-items: end;
+    gap:5px;
+    cursor: pointer;
+}
+
+.controllerLeft{
+    transform: rotate(180deg);
+}
+
+.bold{
+    font-weight: 800;
+}
+
+.mobileMenuBody,.menuHead{display: none;}
+
+.DocPage{
+    position:absolute;
+    top:0px; 
+    padding:100px; 
+    width:100%;
+    display:flex;
+    gap:20px;
+    flex-direction:column;
+}
+
+@media screen and (max-width: 900px) {
+
+    .DocPage{
+        padding: 80px 20px;
+    }
+
+    .DocPage p{
+        font-size: 14px;
+    }
+
+    .DocPage h1{
+        font-size: 20px;
+    }
+
+    .bold{
+       display: none;
+    }
+
+    .controller{
+        align-items: center;
+    }
+
+    .menuContainer{
+        display: none;
+    }
+
+    .mobileMenu{
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+
+    .menuHead{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobileMenuTab{
+        width:fit-content;
+        height:fit-content;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .menuTabOpen{transform: rotate(-90deg);}
+
+    .menuTabClose{transform: rotate(90deg);}
+
+    .mobileMenuBody{
+        display: block;
+    }
+}

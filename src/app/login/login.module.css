@@ -1,0 +1,51 @@
+.form_container{
+    width: 500px;
+    display: flex;
+    gap:25px;
+    flex-direction: column;
+}
+
+.forgot_password{
+    font-size: 14px;
+    text-align: center;
+    color: #9CABBA;
+}
+
+.form_container_inner{
+    padding:0px 10px;
+    display:flex; 
+    flex-direction:column;
+    gap:25px;
+}
+
+.registerBtn{
+    display:flex;
+    width:500px; 
+    gap:100px;
+}
+
+.error_text{
+    font-size: 14px;
+    margin: 0px;
+    color:rgb(184, 45, 45);
+}
+
+.progressBar{
+    width:100%;
+}
+
+@media screen and (max-width: 500px) {
+    .form_container{
+        width: 100%;
+    }
+
+    .progressBar{
+        width:100%;
+        padding: 0px;
+    }
+
+    .registerBtn{
+        width:100%;
+    }
+    
+}

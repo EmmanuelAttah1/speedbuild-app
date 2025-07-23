@@ -1,0 +1,12 @@
+.spinnerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spinner {
+    border-style: solid;
+    border-color: #3498db transparent transparent transparent;
+    border-radius: 50%;
+  }
+  
