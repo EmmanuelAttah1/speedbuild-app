@@ -30,7 +30,7 @@ export const CheckBoxParent=(props:{
         }
     },[props.defaultValue])
 
-    const updateCheckBoxValues=(value:string,checked:boolean)=>{
+    const updateCheckBoxValues=(value:string)=>{
         let data = [...checkBoxValue]
         let addOthers = showOtherInputField
 
@@ -71,7 +71,7 @@ export const CheckBoxParent=(props:{
             {(showOtherInputField && props.hasOtherFieldLabel)&&<Input name="others" updateValue={(key,val:string)=>{
                 setOtherValues(val)
                 console.log(val);
-                updateCheckBoxValues("Others",true)
+                updateCheckBoxValues("Others")
             }}value={otherValues} label={props.hasOtherFieldLabel} placeholder={props.hasOtherFieldLabel}/>}
         </div>
     )

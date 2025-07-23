@@ -1,9 +1,6 @@
 "use client"
-import { Button } from "../components/button/button"
 import { CenterPageSkeleton } from "../components/center_skeleton/center_skeleton"
-import { Input } from "../components/input/input"
 import { NavBar } from "../components/navbar/navbar"
-import { Select } from "../components/select/select"
 
 import styles from "./style.module.css"
 

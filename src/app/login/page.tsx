@@ -1,26 +1,23 @@
+// src/app/login/LoginForm.tsx
 "use client"
 import Link from "next/link";
 import { Button } from "../components/button/button";
 import { CenterPageSkeleton } from "../components/center_skeleton/center_skeleton"
 import { Input } from "../components/input/input";
 import { NavBar } from "../components/navbar/navbar";
-
 import styles from "./login.module.css"
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { manageServerCall } from "@/api/api";
-
 import { useSearchParams, useRouter } from "next/navigation";
 
-const Login =()=>{
+const LoginForm = () => {
     const [formData, setFormData] = useState<Record<string,string>>({
         username:"",
         password:""
     })
 
     const [hasError, setHasError] = useState<boolean>(false)
-
     const router = useRouter()
-
     const [loading,setLoading] = useState<boolean>(false)
 
     const updateFormField=(key: string, value:string)=>{
@@ -33,24 +30,18 @@ const Login =()=>{
     const wsToken = params.get('token')
 
     const submiForm=()=>{
-        console.log(formData);
-        const data = formData
-
+        const data = {...formData}
         if(wsToken){
-            console.log(wsToken);
             data['token'] = wsToken
         }
-
         setLoading(true)
         manageServerCall("post","auth/login/",{},data)
-        .then(res=>{
-            console.log(res);
+        .then(()=>{
             setLoading(false)
             setHasError(false)
             router.push('/login-successful')
         })
-        .catch(err=>{
-            console.log(err);
+        .catch(()=>{
             setLoading(false)
             setHasError(true)
         })
@@ -86,4 +77,12 @@ const Login =()=>{
     );
 }
 
-export default Login
+const LoginPage=()=>{
+    return (
+        <Suspense>
+            <LoginForm />
+        </Suspense>
+    );
+}
+
+export default LoginPage;

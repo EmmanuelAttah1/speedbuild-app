@@ -60,7 +60,7 @@ function preparePayload(
 export const manageServerCall=async(
         method:string,path:string,
         urlparams?:Record<string, string>,
-        data:any={},
+        data:unknown={},
         useToken=false,
         serverCookies:Record<string,string>={},
         files:Record<string,File>={},

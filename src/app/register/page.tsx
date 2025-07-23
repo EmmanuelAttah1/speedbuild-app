@@ -7,8 +7,7 @@ import { NavBar } from "../components/navbar/navbar";
 
 import styles from "../login/login.module.css"
 import { Select } from "../components/select/select";
-import { CheckBoxInput } from "../components/checkbox/checkbox";
-import { useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckBoxParent } from "../components/checkBoxParent/checkbox";
 import { RegistrationType, RegistrationKeys } from "@/utils/types";
@@ -166,7 +165,7 @@ const RegisterPage =()=>{
         setFormLoading(true)
         
         manageServerCall('post','auth/register/',{},formData,false,{},{},true)
-        .then(res=>(
+        .then(()=>(
             router.push("/llm-configuration")
         ))
         .catch(err=>{
@@ -385,4 +384,12 @@ const RegisterPage =()=>{
     );
 }
 
-export default RegisterPage
+const RegisterMainPage=()=>{
+    return (
+        <Suspense>
+            <RegisterPage />
+        </Suspense>
+    );
+}
+
+export default RegisterMainPage;

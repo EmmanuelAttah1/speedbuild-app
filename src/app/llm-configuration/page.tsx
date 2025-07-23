@@ -6,7 +6,6 @@ import { NavBar } from "../components/navbar/navbar";
 
 import styles from "./style.module.css"
 import { Select } from "../components/select/select";
-import { CheckBoxInput } from "../components/checkbox/checkbox";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -96,46 +95,13 @@ const LLMOptions = [
 ]
 
 const LLMConfiguration =()=>{
-    const maxTab = 3
-    const [tab, setTab] = useState<number>(1)
 
-    const [regProgress, setRegProgress] = useState<string>(`${Math.round((100)/3)}%`)
     const [selectedLLMOPtion, updateSelectedLLMOPtion] = useState<number>(1)
-
-    const caculateProgress=(value:number)=>{
-        console.log(value);
-        
-        const progress = Math.round((value * 100)/3)
-        const newProgress =  `${progress}%`
-        setRegProgress(newProgress)
-        console.log("progress ", newProgress);
-        
-        return newProgress
-    }
-
-    const prev=()=>{
-        if(tab > 1){
-            setTab(tab-1)
-            caculateProgress(tab-1)
-        }
-    }
-
-    const next=()=>{
-        if(tab < maxTab){
-            setTab(tab+1)
-            caculateProgress(tab+1)
-        }
-    }
-
-    const register=()=>{
-        if(tab===1){next()}
-    }
 
     const Unchecked=()=>{
         return <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="1" y="1.5" width="18" height="18" rx="9" stroke="#40474F" stroke-width="2"/>
             </svg>
-
     }
 
     const Checked = ()=>{
@@ -154,25 +120,25 @@ const LLMConfiguration =()=>{
         )
     }
 
-    const LLMSelection = (props:{
-        label:string,
-        description:string,
-        active:boolean,
-        onClick:()=>void,
-        children?:any
-    })=>{
+    const LLMSelection = (props: {
+        label: string,
+        description: string,
+        active: boolean,
+        onClick: () => void,
+        children?: React.ReactNode
+    }) => {
         return (
             <>
                 <div className={styles.radioContainer}>
                     <div className={styles.radioLeft} onClick={props.onClick}>
-                        {props.active?<Checked/>:<Unchecked/>}
+                        {props.active ? <Checked /> : <Unchecked />}
                     </div>
                     <div className={styles.radioRight}>
                         <p className={styles.radioHeading}>{props.label}</p>
                         <p className={styles.radioBody}>{props.description}</p>
                     </div>
                 </div>
-                {props.children&&<div>
+                {props.children && <div>
                     {props.children}
                 </div>}
             </>
@@ -202,8 +168,7 @@ const LLMConfiguration =()=>{
                             description={option.description}
                             active={selectedLLMOPtion === option.id}
                             onClick={()=>{updateSelectedLLMOPtion(option.id)}}
-                            children={option.children}
-                        />
+                        >{option.children}</LLMSelection>
                     ))}
                 </div>
 
