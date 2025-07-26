@@ -1,6 +1,6 @@
 import { getCookie, setCookie } from "./utilis"
 
-const address = "http://127.0.0.1:8000/api/"
+const address = "https://backend.speedbuild.dev/api/"//"http://127.0.0.1:8000/api/"
 
 const accessTokenLifespan = 50 // minutes
 const refreshTokenLifespan = 1 // days
