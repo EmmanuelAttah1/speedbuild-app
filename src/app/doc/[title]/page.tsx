@@ -2,11 +2,9 @@
 import { CenterPageSkeleton } from "@/app/components/center_skeleton/center_skeleton"
 import { NavBar } from "@/app/components/navbar/navbar"
 
-import DOMPurify from "dompurify";
-
 import styles from "./style.module.css"
 import { useState } from "react"
-import GetStartedDoc from "@/doc/get_started/component";
+import GetStartedDoc from "@/doc/get_started/installation";
 
 const MenuSection=(props:{name:string})=>{
     const [expand, setExpand] = useState<boolean>(false)
