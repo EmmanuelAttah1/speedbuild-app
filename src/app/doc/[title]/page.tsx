@@ -6,6 +6,7 @@ import DOMPurify from "dompurify";
 
 import styles from "./style.module.css"
 import { useState } from "react"
+import GetStartedDoc from "@/doc/get_started/component";
 
 const MenuSection=(props:{name:string})=>{
     const [expand, setExpand] = useState<boolean>(false)
@@ -42,21 +43,18 @@ const DocDetail=()=>{
                     <div className={styles.menuContainer}>
                         <div>
                             <p className={styles.sectionHeadBold}>First Step</p>
-                            <MenuSection name="Introduction"/>
                             <MenuSection name="Installation"/>
                             <MenuSection name="Quick Start"/>
                         </div>
                         <div>
                             <p className={styles.sectionHeadBold}>Core Concepts</p>
-                            <MenuSection name="Introduction"/>
-                            <MenuSection name="Installation"/>
-                            <MenuSection name="Quick Start"/>
+                            <MenuSection name="Feature Customization"/>
+                            <MenuSection name="LLM Configuration"/>
                         </div>
                         <div>
                             <p className={styles.sectionHeadBold}>Help / Debugging</p>
-                            <MenuSection name="Introduction"/>
-                            <MenuSection name="Installation"/>
-                            <MenuSection name="Quick Start"/>
+                            <MenuSection name="FAQ"/>
+                            <MenuSection name="Contact Support"/>
                         </div>
                     </div>
 
@@ -93,8 +91,12 @@ const DocDetail=()=>{
                                 </div>
                             </div>}
                         </div>
-                        <h1>Get Started with SpeedBuild</h1>
-                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize("<p>Article Content</p>") }}/>
+                        <h1>Installation Guide</h1>
+                        <GetStartedDoc/>
+                        {/* <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(`
+
+
+                            `) }}/> */}
                         <div className={styles.ControllerContainer}>
                             <div className={styles.controller}>
                                 <div className={styles.controllerLeft}>

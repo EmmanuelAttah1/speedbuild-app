@@ -1,0 +1,19 @@
+.DocContainer{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    font-size: 14px;
+    padding: 10px 0px;
+}
+
+.command{
+    padding:10px;
+    background-color: #293038;
+    width:fit-content;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.cli_heading{
+    font-weight: 700;
+}
