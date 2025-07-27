@@ -71,21 +71,18 @@ const DocDetail=()=>{
                             {mobileMenuOpen&&<div>
                                 <div>
                                     <p className={styles.sectionHeadBold}>First Step</p>
-                                    <MenuSection name="Introduction"/>
                                     <MenuSection name="Installation"/>
                                     <MenuSection name="Quick Start"/>
                                 </div>
                                 <div>
                                     <p className={styles.sectionHeadBold}>Core Concepts</p>
-                                    <MenuSection name="Introduction"/>
-                                    <MenuSection name="Installation"/>
-                                    <MenuSection name="Quick Start"/>
+                                    <MenuSection name="Feature Customization"/>
+                                    <MenuSection name="LLM Configuration"/>
                                 </div>
                                 <div>
                                     <p className={styles.sectionHeadBold}>Help / Debugging</p>
-                                    <MenuSection name="Introduction"/>
-                                    <MenuSection name="Installation"/>
-                                    <MenuSection name="Quick Start"/>
+                                    <MenuSection name="FAQ"/>
+                                    <MenuSection name="Contact Support"/>
                                 </div>
                             </div>}
                         </div>
