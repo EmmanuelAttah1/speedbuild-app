@@ -17,3 +17,24 @@
 .cli_heading{
     font-weight: 700;
 }
+
+.DocSection{
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.sampleCLIOutput{
+    background-color: #29303894;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.CliContainer{
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}

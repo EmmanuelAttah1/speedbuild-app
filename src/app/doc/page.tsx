@@ -1,7 +1,7 @@
 "use client"
 import { CenterPageSkeleton } from "../components/center_skeleton/center_skeleton"
 import { NavBar } from "../components/navbar/navbar"
-
+import Link from "next/link"
 import styles from "./style.module.css"
 
 const DocumentationPage=()=>{
@@ -10,7 +10,6 @@ const DocumentationPage=()=>{
             <CenterPageSkeleton>
             <NavBar />
             <div className={styles.MainDocContainer}>
-
                 <h1>SpeedBuild Documentation</h1>
                 <p className={styles.subtitle}>Explore our comprehensive documentation to learn how to use SpeedBuild effectively.</p>
 
@@ -31,7 +30,7 @@ const DocumentationPage=()=>{
                 <div>
                     <h2>Getting Started</h2>
                     <div className={styles.option_container}>
-                        <div className={styles.option}>
+                        <Link href="/doc/Installation_Guide" className={styles.option}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_4_236)">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0306 7.71938L14.7806 2.46937C14.6399 2.32876 14.449 2.24984 14.25 2.25H5.25C4.42157 2.25 3.75 2.92157 3.75 3.75V20.25C3.75 21.0784 4.42157 21.75 5.25 21.75H18.75C19.5784 21.75 20.25 21.0784 20.25 20.25V8.25C20.2502 8.05103 20.1712 7.86015 20.0306 7.71938ZM15 4.81031L17.6897 7.5H15V4.81031ZM18.75 20.25H5.25V3.75H13.5V8.25C13.5 8.66421 13.8358 9 14.25 9H18.75V20.25Z" fill="white"/>
@@ -43,8 +42,8 @@ const DocumentationPage=()=>{
                                 </defs>
                             </svg>
                             <p>Installation Guide</p>
-                        </div>
-                        <div className={styles.option}>
+                        </Link>
+                        <Link href="/doc/Quick_Start_Guide?section=Extraction" className={styles.option}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_78_625)">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.72844 17.4319C9.69187 17.5772 8.77781 21 3.75 21C3.33579 21 3 20.6642 3 20.25C3 15.2222 6.42281 14.3081 6.56812 14.2716C6.97017 14.1711 7.37752 14.4156 7.47797 14.8177C7.57842 15.2197 7.33392 15.6271 6.93188 15.7275C6.8475 15.7509 4.83 16.3406 4.53562 19.4644C7.65938 19.17 8.25 17.1562 8.27437 17.0625C8.37793 16.661 8.78738 16.4194 9.18891 16.523C9.59044 16.6265 9.83199 17.036 9.72844 17.4375V17.4319ZM18.4472 11.1131L18 11.5603V17.0287C18.0023 17.4282 17.8442 17.8118 17.5613 18.0938L14.3438 21.3094C14.0635 21.5916 13.6821 21.7502 13.2844 21.75C13.1219 21.75 12.9604 21.7237 12.8062 21.6722C12.2664 21.4936 11.8746 21.0241 11.7956 20.4609L11.2922 16.8525L7.1475 12.7078L3.54094 12.2044C2.9771 12.1253 2.50664 11.7338 2.32641 11.1937C2.14618 10.6536 2.28727 10.0581 2.69062 9.65625L5.90625 6.43875C6.18818 6.1558 6.57182 5.99775 6.97125 6H12.4397L12.8869 5.55281C15.3881 3.0525 18.4022 2.94469 19.5816 3.015C20.3383 3.06099 20.9418 3.66447 20.9878 4.42125C21.0562 5.59781 20.9484 8.61187 18.4481 11.1131H18.4472ZM3.75 10.7194L7.23281 11.205L10.9397 7.5H6.97125L3.75 10.7194ZM8.56125 12L12 15.4388L17.3859 10.0528C18.8544 8.59422 19.6208 6.57206 19.4878 4.50656C17.4235 4.37855 15.4042 5.14618 13.9462 6.61312L8.56125 12ZM16.5 13.0603L12.7941 16.7663L13.2816 20.25L16.5 17.0287V13.0603Z" fill="white"/>
@@ -56,7 +55,7 @@ const DocumentationPage=()=>{
                                 </defs>
                             </svg>
                             <p>Quick Start Guide</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
