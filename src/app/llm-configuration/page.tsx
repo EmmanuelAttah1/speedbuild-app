@@ -25,8 +25,6 @@ const OwnKeyChild=()=>{
                 <div className={styles.llm_container}>
                     <Select label="Select LLM Provider" placeholder="Select provider" option={[
                         "OpenAI",
-                        "Anthropic",
-                        "Google",
                     ]} onSelect={(val)=>{
                         const data = {...llmInfo}
                         data.provider = val.toLowerCase()

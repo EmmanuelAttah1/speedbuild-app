@@ -10,6 +10,8 @@ import ExtractionListDoc from "@/doc/get_started/list_extraction"
 import DeployDoc from "@/doc/get_started/deploy"
 import { useParams, useSearchParams } from "next/navigation"
 import Link from "next/link"
+import ConfigurationDoc from "@/doc/llm_configuration/configuration"
+import FeatureDoc from "@/doc/feature_customization/customization"
 
 const MenuSection=(props:{name:string})=>{
     const [expand, setExpand] = useState<boolean>(false)
@@ -50,13 +52,15 @@ const DocDetail=()=>{
         {name:"Extraction",href:"/doc/Quick_Start_Guide?section=Extraction"},
         {name:"List",href:"/doc/Quick_Start_Guide?section=List"},
         {name:"Deploy",href:"/doc/Quick_Start_Guide?section=Deploy"},
+        {name:"Feature Customization",href:"/doc/Core?section=Feature_Customization"},
+        {name:"LLM Configuration",href:"/doc/Core?section=LLM_Configuration"},
     ]
 
     const GetPaginationButton=()=>{
         let tag = title?.replaceAll("_"," ")
 
         if(section){
-            tag = section
+            tag = section.replaceAll("_"," ")
         }
 
         const currentPage = DocOrder.find(e=>e.name === tag)
@@ -223,7 +227,7 @@ const DocDetail=()=>{
                                 </div>
                             </div>}
                         </div>
-                        {title && section?<h1>{title.replaceAll("_", " ") +" : "+section}</h1> : <h1>{title.replaceAll("_", " ")}</h1>}
+                        {title && section?<h1>{title.replaceAll("_", " ") +" : "+section.replaceAll("_"," ")}</h1> : <h1>{title.replaceAll("_", " ")}</h1>}
                         {title === "Installation_Guide"&& <GetStartedDoc/> }
                         {title === "Quick_Start_Guide" && 
                             section === "Extraction"?
@@ -235,6 +239,17 @@ const DocDetail=()=>{
                                 section ==="Deploy"? <DeployDoc/> 
                                     : 
                                 null  
+                        }
+
+                        {
+                        title === "Core" &&
+                            section === "LLM_Configuration"?
+                                <ConfigurationDoc/>
+                            :
+                                section === "Feature_Customization"?
+                                <FeatureDoc/>
+                                :
+                                null
                         }
 
                         <GetPaginationButton/>
