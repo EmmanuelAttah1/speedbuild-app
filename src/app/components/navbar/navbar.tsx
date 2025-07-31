@@ -23,7 +23,7 @@ export const NavBar=(props:{
                 <p className="brand-name">SpeedBuild</p>
             </div>
             {props.hideItems? null :<div className={styles.nav_items}>
-                {/* <Link href="/doc" className={styles.nav_item}>Docs</Link> */}
+                <Link href="/doc" className={styles.nav_item}>Docs</Link>
                 <div className={styles.nav_item}>Community</div>
                 <Link href="/doc#help" className={styles.nav_item}>Help</Link>
                 <Button

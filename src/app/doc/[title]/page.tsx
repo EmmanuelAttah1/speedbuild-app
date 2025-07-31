@@ -13,7 +13,14 @@ import Link from "next/link"
 import ConfigurationDoc from "@/doc/llm_configuration/configuration"
 import FeatureDoc from "@/doc/feature_customization/customization"
 
-const MenuSection=(props:{name:string})=>{
+const MenuSection=(props:{
+    name:string,
+    hasChildren?:{
+        title:string,
+        href:string
+    }[],
+    href?:string
+})=>{
     const [expand, setExpand] = useState<boolean>(false)
 
     const toogleClass = expand ? `${styles.sectionToggleBtn} ${styles.sectionToggleBtnOpen}` : styles.sectionToggleBtn
@@ -21,17 +28,20 @@ const MenuSection=(props:{name:string})=>{
     return (
         <div className={styles.menuSection}>
             <div className={styles.sectionHead}>
+                {props.href?<Link href={props.href} className={styles.headSection}>{props.name}</Link>:<p className={styles.headSection} onClick={()=>{setExpand(!expand)}}>{props.name}</p>}
                 <div className={toogleClass} onClick={()=>{setExpand(!expand)}}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {props.hasChildren&&<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 17V7L15 12L10 17Z" fill="#E6E0E9"/>
-                    </svg>
+                    </svg>}
                 </div>
-                <p className={styles.headSection}>{props.name}</p>
+                
             </div>
-            {expand&&<div className={styles.sectionChildren}>
-                <p className={styles.sectionChild}>child 1</p>
-                <p className={styles.sectionChild}>child 2</p>
-                <p className={styles.sectionChild}>child 3</p>
+            {expand&&props.hasChildren&&<div className={styles.sectionChildren}>
+                {
+                    props.hasChildren.map((e)=>(
+                        <p key={"child_"+e.title.replaceAll(" ","_")}><Link href={e.href} className={styles.sectionChild}>{e.title}</Link></p>
+                    ))
+                }
             </div>}
         </div>
     )
@@ -182,13 +192,17 @@ const DocDetail=()=>{
                     <div className={styles.menuContainer}>
                         <div>
                             <p className={styles.sectionHeadBold}>First Step</p>
-                            <MenuSection name="Installation"/>
-                            <MenuSection name="Quick Start"/>
+                            <MenuSection name="Installation" href="/doc/Installation_Guide"/>
+                            <MenuSection name="Quick Start" hasChildren={[
+                                {title:"Extraction",href:"/doc/Quick_Start_Guide?section=Extraction"},
+                                {title:"List",href:"/doc/Quick_Start_Guide?section=List"},
+                                {title:"Deploy",href:"/doc/Quick_Start_Guide?section=Deploy"}
+                            ]}/>
                         </div>
                         <div>
                             <p className={styles.sectionHeadBold}>Core Concepts</p>
-                            <MenuSection name="Feature Customization"/>
-                            <MenuSection name="LLM Configuration"/>
+                            <MenuSection name="Feature Customization" href="/doc/Core?section=Feature_Customization"/>
+                            <MenuSection name="LLM Configuration" href="/doc/Core?section=LLM_Configuration"/>
                         </div>
                         <div>
                             <p className={styles.sectionHeadBold}>Help / Debugging</p>
@@ -212,13 +226,17 @@ const DocDetail=()=>{
                             {mobileMenuOpen&&<div>
                                 <div>
                                     <p className={styles.sectionHeadBold}>First Step</p>
-                                    <MenuSection name="Installation"/>
-                                    <MenuSection name="Quick Start"/>
+                                    <MenuSection name="Installation" href="/doc/Installation_Guide"/>
+                                    <MenuSection name="Quick Start" hasChildren={[
+                                        {title:"Extraction",href:"/doc/Quick_Start_Guide?section=Extraction"},
+                                        {title:"List",href:"/doc/Quick_Start_Guide?section=List"},
+                                        {title:"Deploy",href:"/doc/Quick_Start_Guide?section=Deploy"}
+                                    ]}/>
                                 </div>
                                 <div>
                                     <p className={styles.sectionHeadBold}>Core Concepts</p>
-                                    <MenuSection name="Feature Customization"/>
-                                    <MenuSection name="LLM Configuration"/>
+                                    <MenuSection name="Feature Customization" href="/doc/Core?section=Feature_Customization"/>
+                                    <MenuSection name="LLM Configuration" href="/doc/Core?section=LLM_Configuration"/>
                                 </div>
                                 <div>
                                     <p className={styles.sectionHeadBold}>Help / Debugging</p>

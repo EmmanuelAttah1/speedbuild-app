@@ -13,10 +13,11 @@
 
 .sectionToggleBtn{
     cursor: pointer;
+    transform: rotate(90deg);
 }
 
 .sectionToggleBtnOpen{
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 
 .menuContainer{

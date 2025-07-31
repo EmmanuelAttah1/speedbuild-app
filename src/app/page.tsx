@@ -31,7 +31,7 @@ export default function Home() {
               border_radius={true}
               block = {true}
               onClick={()=>{
-                router.push("/doc/Get-Started")
+                router.push("/doc/Installation_Guide")
               }}
           />
         </div>
