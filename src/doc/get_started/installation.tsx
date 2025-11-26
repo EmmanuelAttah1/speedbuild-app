@@ -20,15 +20,6 @@ const GetStartedDoc=()=>{
             <div className={styles.command}>speedbuild</div>
 
             <p>You should see the SpeedBuild CLI help message.</p>
-
-            <div>
-                <p className={styles.cli_heading}># Set Up Your Environment</p>
-                Authenticate and sync SpeedBuild with the cloud by running:
-            </div>
-
-            <div className={styles.command}>speedbuild setup</div>
-
-            <p>This will download the necessary configuration files and prompt you to register or log into your account.</p>
         </div>
     )   
 }

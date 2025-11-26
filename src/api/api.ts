@@ -1,6 +1,6 @@
 import { getCookie, setCookie } from "./utilis"
 
-const address = "https://backend.speedbuild.dev/api/"//"http://127.0.0.1:8000/api/"
+const address = "https://backend.speedbuild.dev/api/"//
 
 const accessTokenLifespan = 50 // minutes
 const refreshTokenLifespan = 1 // days
@@ -96,7 +96,7 @@ export const manageServerCall=async(
                 //access token has expired
                 const refreshToken = serverCookies['refresh'] !== undefined ? serverCookies['refresh'] : getCookie("refresh")
                 if(refreshToken !== ""){
-                    manageServerCall("post","user/token/refresh/",{},{refresh:refreshToken},false)
+                    manageServerCall("post","token/refresh/",{},{refresh:refreshToken},false)
                     .then(res=>{
                         const response = res as RefreshTokenResponse
                         setCookie("access",response["access"],accessTokenLifespan,"minute")
@@ -171,6 +171,17 @@ export const manageServerCall=async(
                 // Just resolve the Blob (e.g. PDF file)
                 resolve(res);
                 return;
+            }
+
+            // if login or register
+            // save cookies
+            if(path === "auth/login/" || path === "auth/register/"){
+                if(res !== undefined && Object.keys(res).includes("access")){
+                    //login or registration successful
+                    //console.log("saving cookies");
+                    setCookie("access",res["access"],accessTokenLifespan,"minute")
+                    setCookie("refresh",res["refresh"],refreshTokenLifespan)
+                }
             }
             resolve(res)
         })

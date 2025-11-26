@@ -6,7 +6,7 @@ const FeatureDoc=()=>{
 
             <div className={styles.DocSection}>
                 <div className={styles.textBlock}>
-                    Speedbuild gives you the option to customize and adapt your extracted templates in plain English to fit the project you want to deploy them to.
+                    Speedbuild gives you the option to customize and adapt your extracted templates in plain English to fit the project you want to deploy to.
                     To achieve this we integrate with Large Language Providers (LLMs).
                 </div>
                 <div className={styles.textBlock}>

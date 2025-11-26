@@ -12,9 +12,8 @@ import { useRouter } from "next/navigation";
 
 const OwnKeyChild=()=>{
 
-    const [llmInfo,setllmInfo]=useState<{provider:string,value:string}>({
+    const [llmInfo,setllmInfo]=useState<{provider:string,value?:string}>({
         provider:"<provider_name>",
-        value:"<provider_api_key>"
     })
 
     const [defaultModel, setDefaultModel] = useState<string>("<model_name>")
@@ -24,7 +23,7 @@ const OwnKeyChild=()=>{
             <div className={styles.customRow}>
                 <div className={styles.llm_container}>
                     <Select label="Select LLM Provider" placeholder="Select provider" option={[
-                        "OpenAI",
+                        "OpenAI","Anthropic","Gemini"
                     ]} onSelect={(val)=>{
                         const data = {...llmInfo}
                         data.provider = val.toLowerCase()
@@ -45,14 +44,14 @@ const OwnKeyChild=()=>{
                     <li>2. Run <span className={styles.sb_command} onClick={async ()=>{
                         await navigator.clipboard.writeText("speedbuild llm provider " + llmInfo.provider+" "+llmInfo.value);
                         alert("Copied to clipboard!");
-                    }}>speedbuild llm provider {llmInfo.provider} {llmInfo.value}</span></li>
+                    }}>speedbuild auth llm provider {llmInfo.provider} {llmInfo.value? "*******": "<provider_api_key>"}</span></li>
                 </ol>
                 <br/>
 
                 
-                <p>By default we use your first llm provider, to change run:</p>
+                <p>To set the LLM model run:</p>
                 <ul>
-                    <li>
+                    {/* <li>
                         <div className={styles.selectModel}>
                             <Select placeholder="Select LLM" option={[
                                 "gpt-4o-2024-08-06",
@@ -62,11 +61,11 @@ const OwnKeyChild=()=>{
                                 setDefaultModel(val)
                             }}/>
                         </div>
-                    </li>
+                    </li> */}
                     <li>1. Run <span className={styles.sb_command} onClick={async ()=>{
-                        await navigator.clipboard.writeText("speedbuild llm model "+defaultModel);
+                        await navigator.clipboard.writeText("speedbuild auth llm model <model_provider> <model_name>");
                         alert("Copied to clipboard!");
-                    }}>{"speedbuild llm model "+defaultModel}</span></li>
+                    }}>{"speedbuild auth llm model <model_provider> <model_name>"}</span></li>
                 </ul>
             </div>
         </div>

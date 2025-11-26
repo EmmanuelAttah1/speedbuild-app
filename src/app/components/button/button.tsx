@@ -16,7 +16,7 @@ export const Button=(props:{
     const style = {
         backgroundColor:props.background_color,
         color:props.color,
-        borderRadius: props.border_radius? "20px" : "0px",
+        borderRadius: props.border_radius? "8px" : "0px",
         width:size,
     }
     return(

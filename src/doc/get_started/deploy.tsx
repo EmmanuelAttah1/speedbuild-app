@@ -6,7 +6,7 @@ const DeployDoc=()=>{
             <div className={styles.DocSection}>
                 <p className={styles.cli_heading}># Deploy Feature to new project</p>
                 <p><b>Before deploying a feature, navigate to the main directory of your target project.</b> Then run : </p>
-                <div className={styles.command}>{"speedbuild deploy <feature_name>"}</div>
+                <div className={styles.command}>{"speedbuild deploy <feature_name>  --<feature_framework>"}</div>
                 <p>Then just follow the prompt.</p>
                 <p>You will be prompted to deploy the feature as it is, or Adapt it to fit your project.</p>
             </div>

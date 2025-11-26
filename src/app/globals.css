@@ -43,6 +43,38 @@ body {
     gap:20px;
 }
 
+.MainBody{
+  padding: 120px 30px 100px 30px;
+  width: 1000px;
+}
+
+.MainBody_wide{
+  padding: 120px 30px 100px 30px;
+  width: 100%;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}
+
+.no-padding-top{
+  padding-top: 0px;
+}
+
+/* th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+} */
+
+@media (max-width: 900px) { /* Styles for screens wider than 768px */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .MainContainer{
     width: 100%;

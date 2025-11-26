@@ -5,22 +5,23 @@ import styles from "../doc.module.css"
 const QuickStart=()=>{
     return (
         <div className={styles.DocContainer}>
+            <p>Speedbuild currently support just Django and Express framework.</p>
+            <p>SpeedBuild can either extract features by their names or their route.</p>
+
+            <p>SpeedBuild extraction follow this format : <b>{"speedbuild extract <name_of_feature_or_route> <path_to_feature> --<framework>"}</b></p>
+            <p>NOTE : <b>we need to be in the project root directory before we can run this command.</b></p>
+
             <div className={styles.DocSection}>
-                <p className={styles.cli_heading}># Extract a single feature</p>
-                <div className={styles.command}>speedbuild extract shop/views.py CheckoutCart</div>
+                <p className={styles.cli_heading}># Extract with name</p>
+                <p>For example if we wanted to extract the CheckoutCart feature from a django project, we will do</p>
+                <div className={styles.command}>{"speedbuild extract CheckoutCart shop/views.py --django"}</div>
                 <p>This Extract the CheckoutCart feature from the <b>shop</b> django app</p>
             </div>
 
             <div className={styles.DocSection}>
-                <p className={styles.cli_heading}># Extract all features from an entire Django app</p>
-                <div className={styles.command}>speedbuild extract shop</div>
-                <p>This command will scan the <b>shop</b> app, identify extractable features (views, model logics, forms, etc.) and save them as reusable templates.</p>
-            </div>
-
-            <div className={styles.DocSection}>
-                <p className={styles.cli_heading}># Extract all features from the whole project</p>
-                <div className={styles.command}>speedbuild extract </div>
-                <p>This captures all apps and features in your Django project. You’ll be able to select and deploy any of them later using speedbuild deploy.</p>
+                <p className={styles.cli_heading}># Extract with route</p>
+                <div className={styles.command}>speedbuild extract /home routes/contact_routes.js --express </div>
+                <p>This command will scan the <b>routes/contact_routes.js</b> file, identify and extract the feature attached to the specified route "/home".</p>
             </div>
         </div>
     )
