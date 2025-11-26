@@ -192,6 +192,7 @@ const ManageRepoPage=()=>{
         name:string,
         description:string,
         is_private:boolean,
+        [key:string]:string | boolean
     }>({
         name:"",
         description:"",
@@ -276,7 +277,7 @@ const ManageRepoPage=()=>{
             // get repo info
             manageServerCall("get","repo/"+id+"/",{action:"info"},{},true)
             .then(res=>{
-                const data = res.data
+                const data = (res as { data: { name: string; description: string; private: boolean } }).data
                 setRepoInfo({
                     name:data.name,
                     description:data.description,
@@ -287,7 +288,7 @@ const ManageRepoPage=()=>{
             // get repo collaborators
             manageServerCall("get","collaborators/",{repo:id as string},{},true)
             .then(res=>{
-                const data = res.collaborators
+                const data = (res as { collaborators: any[] }).collaborators
                 setPendingInvites(data.filter(e=>{return e.invite_accepted===false}))
                 setActiveCollaborators(data.filter(e=>{return e.invite_accepted===true}))
             })
