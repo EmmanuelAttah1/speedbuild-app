@@ -6,7 +6,7 @@ import { Button } from "../components/button/button";
 import styles from "../library/style.module.css"
 import { Input } from "../components/input/input";
 import { Select } from "../components/select/select";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { manageServerCall } from "@/api/api";
 
 
@@ -173,7 +173,7 @@ type EmailSuggestion={
 }
 
 
-const ManageRepoPage=()=>{
+const RepoPage=()=>{
     const router = useRouter()
 
     const [addCollaboratorData, setAddCollaboratorData] = useState<{email:string,permission:string}>({
@@ -434,7 +434,15 @@ const ManageRepoPage=()=>{
     )
 }
 
-export default ManageRepoPage;
+const ManageRepoPage =()=>{
+    return(
+        <Suspense>
+            <RepoPage/>
+        </Suspense>
+    )
+};
+
+export default ManageRepoPage
 
 
 // ** Repo task **
