@@ -4,7 +4,7 @@ import { NavBar } from "../components/navbar/navbar";
 import styles from "./style.module.css"
 import Image from "next/image";
 import postImage from "../components/images/post_1.png"
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { manageServerCall } from "@/api/api";
 import { object } from "framer-motion/client";
 
@@ -267,4 +267,8 @@ const FeatureDetail=(props:{openSearch:(opened:boolean)=>void})=>{
     )
 }
 
-export default ProfilePage;
+const LibraryPage=()=>{
+    return <Suspense><ProfilePage/></Suspense>
+}
+
+export default LibraryPage;
